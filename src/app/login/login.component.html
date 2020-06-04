@@ -1,27 +1,19 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-<div class="text-center border border-light p-5" style="width:500px;height:40px;margin-left: auto;margin-right: auto;">
-
-  <p class="h4 mb-4">login</p> 
-  <input type="text" [(ngModel)]="cedula" class="form-control mb-4" placeholder="Ingrese Cedula"
-    style="width:500px;height:40px"> 
-  <input type="password" [(ngModel)]="pass" class="form-control mb-4" placeholder="Ingrese Contraseña"
-    style="width:500px;height:40px">
-    <a>{{mensaje}}</a>
-  <div class="d-flex justify-content-around">
-    &nbsp;
-    <div>     
-      <a href="/registropadre">Registrarse</a>
+<div class="row h-100 p-5 justify-content-center">
+    <div class="col-4"></div>
+    <div class="text-center border bg-light rounded p-4 col-4 row">
+        <p class="h4 mb-4 col-12 text-center">Bienvenido</p>
+        <input type="text" [(ngModel)]="cedula" class="form-control mb-4 col-12" placeholder="Ingrese Cedula">
+        <input type="password" [(ngModel)]="pass" class="form-control mb-4 col-12" placeholder="Ingrese Contraseña">
+        <a>{{mensaje}}</a>
+        <div class="col-6 align-self-center">
+            <a href="/registropadre">Registrarse</a>
+        </div>
+        <button class="btn btn-primary col-6" (click)="ConsultarPadres()" type="button">Ingresar</button>
     </div>
-  </div>
-  <br>
-  <button class="btn btn-primary" (click)=" ConsultarPadres() " type="button">Ingresar</button>
+    <div class="col-4"></div>
 </div>
-
