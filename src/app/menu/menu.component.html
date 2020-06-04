@@ -3,79 +3,76 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <br>
-<div style="text-align: center;" >
-  <div>
-<nav class="navbar navbar-expand-sm " class="navbar-nav.navbar-center" > 
-    <a class="navbar-brand">
-      <img src="https://static.guiainfantil.com/uploads/ocio/cuentoscolegio-p.jpg" alt="logo" style="width:80px;height:40px">
-    </a>    
-    <div class="btn-group btn-group-justified" data-toggle="buttons" >
-        <button type="button" class="btn btn-primary btn-info" (click)="selec_r()" style="width:260px;height:40px">Recoger</button>
-        <button type="button" class="btn btn-primary btn-info" (click)="selec_i()" style="width:260px;height:40px">Registrar Alumno</button>
-         
-      </div>          
-      &nbsp;<a href="/">Salir</a>      
-  </nav>
-</div>  
-  <br>
-  <div [ngSwitch]="seleccion"  style="text-align: center;">
-    <div *ngSwitchCase="'r'">
-        <div>
-        <label class="radio-inline"><input type="radio" name="optradio" value="1" [(ngModel)]="carril" checked> &nbsp;Carril 1</label> &nbsp; &nbsp;
-        <label class="radio-inline"><input type="radio" name="optradio" value="2" [(ngModel)]="carril"> &nbsp;Carril 2</label> &nbsp; &nbsp;
-        <label class="radio-inline"><input type="radio" name="optradio" value="3" [(ngModel)]="carril"> &nbsp;Carril 3</label> &nbsp; &nbsp;
+
+<div style="text-align: center;">
+    <div>
+        <nav class="navbar navbar-expand-sm border" class="navbar-nav.navbar-center">
+            <a class="navbar-brand">
+                <img src="https://static.guiainfantil.com/uploads/ocio/cuentoscolegio-p.jpg" alt="logo" style="width:80px;height:40px">
+            </a>
+            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <button type="button" class="btn btn-primary btn-info" (click)="selec_r()" style="width:260px;height:40px">Recoger</button>
+                <button type="button" class="btn btn-primary btn-info" (click)="selec_i()" style="width:260px;height:40px">Registrar Alumno</button>
+
+            </div>
+            &nbsp;<a href="/">Salir</a>
+        </nav>
     </div>
     <br>
-    <div >   
-        <button class="btn btn-primary" (click)="metodo_llegue()" type="button">Llegue</button>
-    </div>
-    </div>
-    <div *ngSwitchCase="'i'">
-        <div class="row">
-           <div class="col-md-6" style="text-align: end;">Nombre alumno :</div> <div class="col-md-6"><input type="text" [(ngModel)]="nombrealumno" class="form-control mb-4" placeholder="Ingrese nombre alumno"
-            style="width:250px;height:40px"> </div> 
-    </div>
-    <div class="row"> 
-        <div class="col-md-6" style="text-align: end;">Seccion :</div>
-        <div style="text-align:start">
-            <label class="radio-inline"><input type="radio" name="optradio" value="Pre-escolar" [(ngModel)]="seccion" checked >&nbsp;Pre-Escolar</label><br>
-            <label class="radio-inline"><input type="radio" name="optradio" value="Primaria" [(ngModel)]="seccion" >&nbsp;Primaria</label><br>
-            <label class="radio-inline"><input type="radio" name="optradio" value="Bachillerato" [(ngModel)]="seccion">&nbsp;Bachillerato</label>
-        </div>   
+    <div [ngSwitch]="seleccion" style="text-align: center;">
+        <div *ngSwitchCase="'r'">
+            <div>
+                <label class="radio-inline"><input type="radio" name="optradio" value="1" [(ngModel)]="carril" checked> &nbsp;Carril 1</label> &nbsp; &nbsp;
+                <label class="radio-inline"><input type="radio" name="optradio" value="2" [(ngModel)]="carril"> &nbsp;Carril 2</label> &nbsp; &nbsp;
+                <label class="radio-inline"><input type="radio" name="optradio" value="3" [(ngModel)]="carril"> &nbsp;Carril 3</label> &nbsp; &nbsp;
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary" (click)="metodo_llegue()" type="button">Llegue</button>
+            </div>
+        </div>
+        <div *ngSwitchCase="'i'">
+            <div class="row">
+                <div class="col-md-6" style="text-align: end;">Nombre alumno :</div>
+                <div class="col-md-6"><input type="text" [(ngModel)]="nombrealumno" class="form-control mb-4" placeholder="Ingrese nombre alumno" style="width:250px;height:40px"> </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="text-align: end;">Seccion :</div>
+                <div style="text-align:start">
+                    <label class="radio-inline"><input type="radio" name="optradio" value="Pre-escolar" [(ngModel)]="seccion" checked >&nbsp;Pre-Escolar</label><br>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="Primaria" [(ngModel)]="seccion" >&nbsp;Primaria</label><br>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="Bachillerato" [(ngModel)]="seccion">&nbsp;Bachillerato</label>
+                </div>
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-primary" (click)="IngresarAlumno()" type="button">Guardar</button>
+            </div>
+            <br>
+            <div class="container">
+                <h4 style="text-align: center;">Alumnos Guardados</h4>
+                <table class="table table-bordered" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Seccion</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let a  of alumnos">
+                        <tr>
+                            <td>{{a.nombre}}</td>
+                            <td>{{a.seccion}}</td>
+                            <td> <button type="button" (click)="RemoveAlumno(a.id)" class="btn btn-link">Eliminar</button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngSwitchCase="'l'">
+            <div>
+                <button class="btn btn-primary" (click)="metodo_listo()" type="button">Listo</button>
+            </div>
+        </div>
     </div>
     <br>
-    <div >   
-        <button class="btn btn-primary" (click)="IngresarAlumno()" type="button">Guardar</button>
-    </div>
-    <br>
-    <div class="container">
-        <h4 style="text-align: center;">Alumnos Guardados</h4>              
-        <table class="table table-bordered" style="text-align: center;">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Seccion</th>
-              <th>Accion</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let a  of alumnos">           
-            <tr>
-              <td>{{a.nombre}}</td>
-              <td>{{a.seccion}}</td>
-              <td> <button type="button"  (click)="RemoveAlumno(a.id)" class="btn btn-link">Eliminar</button> </td>
-            </tr>               
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div *ngSwitchCase="'l'">
-        <div>
-            <button class="btn btn-primary" (click)="metodo_listo()"  type="button">Listo</button>
-    </div>
-   </div>
-</div>
-<br>
-
-
-
-  

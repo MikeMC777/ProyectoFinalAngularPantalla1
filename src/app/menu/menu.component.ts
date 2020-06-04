@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   seccion: string;
   dnipadre: number;
   alumnos: any;
+
   constructor(private service: CrudserviceService) {}
 
   ngOnInit(): void {
